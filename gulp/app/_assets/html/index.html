@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/index.css">
+    <title>gulp demo index</title>
+</head>
+
+<body id="home">
+    <div class="container">
+        <img src="images/youxianji.png" alt="优先级"/><br />
+        test
+        <div class="test">先后顺序，后声明的优先级更高</div>
+        <span>.container span 优先级11</span>
+        <div class="class">.container .class优先级20</div>
+        <div class="class" id="test-id">id test 优先级100</div>
+        <div class="class" style="background: blue">syletest</div>
+        <div class="class-important">important test,</div>
+        <div class="class-important" style="background: yellow">important syletest test, style优先级最高，高于important</div>
+    </div>
+</body>
+
+</html>
