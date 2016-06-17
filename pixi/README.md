@@ -1,0 +1,1 @@
+this is a project to practice pixi.js, this folder has some simple pixi demos

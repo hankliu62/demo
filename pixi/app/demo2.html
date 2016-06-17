@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PIXI Demo2</title>
+</head>
+<body>
+  <script src="../node_modules/pixi.js/bin/pixi.min.js"></script>
+  <script>
+    var render = PIXI.autoDetectRenderer(500, 500)
+    document.body.appendChild(render.view);
+
+    var stage = new PIXI.Container();
+    render.render(stage);
+  </script>
+</body>
+</html>
