@@ -1,0 +1,14 @@
+[
+    {
+        "id": 0,
+        "age": 34,
+        "name": "Bernadette Dominguez",
+        "email": "bernadettedominguez@cubix.com"
+    },
+    {
+        "id": 1,
+        "age": 33,
+        "name": "Alisa Washington",
+        "email": "alisawashington@cubix.com"
+    }
+]

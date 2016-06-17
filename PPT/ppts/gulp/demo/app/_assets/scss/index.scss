@@ -1,0 +1,38 @@
+.container {
+  color: red;
+}
+
+div {
+  margin-top: 15px;
+}
+
+.test {
+  color: blue;
+}
+
+.container {
+  span {
+    display: inline;
+    color: fuchsia;
+    margin-top: 15px;
+  }
+
+  .class {
+    color: fuchsia;
+    background: green;
+  }
+
+  .class-important{
+    background: red
+  }
+}
+
+
+#test-id {
+  color: red;
+}
+
+.class-important{
+  color: white;
+  background: red  !important;
+}

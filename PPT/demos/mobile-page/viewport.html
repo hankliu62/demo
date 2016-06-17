@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Viewport</title>
+
+	<!--
+		默认IOS的layout viewport是980px
+		IOS自动调整initial-scale为0.4,看右上角 (375/980=0.3826530612244898)
+		font-size设置为40px才能达到12px的大小
+	-->
+
+	<!-- 直接设定布局视口 -->
+	<!-- <meta name="viewport" content="width=750"> -->
+
+	<!-- IOS自动调整initial-scale为0.5 -->
+	<!-- <meta name="viewport" content="width=device-width"> -->
+
+	<!-- <meta name="viewport" content="initial-scale=1.0"> -->
+	<!-- <meta name="viewport" content="initial-scale=0.5"> -->
+
+	<!-- 苹果在iOS9更新中更改了initial-scale的用途，使用shrink-to-fit=no来替代 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		.box {
+			width: 750px;
+			height: 1334px;
+			padding-top: 300px;
+			background: #fbb8ac;
+			text-align: center;
+			font-size: 75px;
+			color: #fff;
+		}
+
+		.data {
+			font-size: 40px;
+			margin: 30px;
+		}
+	</style>
+	<script>
+		document.addEventListener('DOMContentLoaded', function() {
+			document.getElementById('devicePixelRatio').innerText = window.devicePixelRatio;
+			document.getElementById('layoutViewport').innerText = document.documentElement.clientWidth;
+			document.getElementById('visualViewport').innerText = window.innerWidth;
+			document.getElementById('expectedViewport').innerText = screen.width;
+			document.getElementById('zoomLevel').innerText = screen.width / window.innerWidth;
+		})
+	</script>
+</head>
+<body>
+	<div class="box">
+		750px * 1334px
+		<div class="data">
+			devicePixelRatio:
+			<span id="devicePixelRatio"></span>
+		</div>
+		<div class="data">
+			layoutViewport:
+			<span id="layoutViewport"></span>
+		</div>
+		<div class="data">
+			visualViewport:
+			<span id="visualViewport"></span>
+		</div>
+		<div class="data">
+			expectedViewport:
+			<span id="expectedViewport"></span>
+		</div>
+		<div class="data">
+			zoomLevel:
+			<span id="zoomLevel"></span>
+		</div>
+	</div>
+</body>
+</html>

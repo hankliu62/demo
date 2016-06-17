@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Flexbox</title>
+	<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="font-awesome/css/font-awesome.css">
+	<style>
+		.text {
+			text-align: center;
+			padding-top: 250px;
+			font-size: 30px;
+		}
+
+		.nav {
+			display: -webkit-box;
+		  	display: flex;
+
+		  	/*flex-direction: row-reverse;*/
+		  	/*flex-direction: column;*/
+
+		  	position: absolute;
+		  	bottom: 0;
+		  	left: 0;
+		  	right: 0;
+		  	background: #EEE;
+		  	font-size: 20px;
+			border-top: 1px solid #AAA;
+		}
+
+		.item {
+			-webkit-box-flex: 1;
+			flex: 1;
+
+			text-align: center;
+			color: #111;
+			padding: 10px;
+			padding-top: 15px;
+		}
+
+		/* .item:not(:nth-child(1)) {
+			-webkit-box-flex: 1;
+			flex: 1;
+		}
+
+		.item:nth-child(1) {
+			width: 100px;
+		} */
+
+		.item:hover {
+			cursor: pointer;
+			color: #2ECC40;
+		}
+
+		.nav i {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="text">Page Content</div>
+	<ul class="nav">
+	  <li class="item"><i class="icon-twitter icon-large"></i>Twitter</li>
+	  <li class="item"><i class="icon-github icon-large"></i>Github</li>
+	  <li class="item"><i class="icon-google-plus icon-large"></i>Google</li>
+	  <li class="item"><i class="icon-facebook icon-large"></i>Facebook</li>
+	</ul>
+</body>
+</html>

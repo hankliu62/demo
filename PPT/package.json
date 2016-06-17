@@ -1,0 +1,20 @@
+{
+  "name": "PPT",
+  "version": "1.0.0",
+  "description": "Internal shared PPT markdown files.",
+  "main": "index.js",
+  "scripts": {
+    "ppt": "cd ppts && nodeppt start -p 8001",
+    "demo": "http-server demos -p 8081"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frontnode/PPT.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frontnode/PPT/issues"
+  },
+  "homepage": "https://github.com/frontnode/PPT"
+}

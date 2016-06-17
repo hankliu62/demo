@@ -1,0 +1,57 @@
+$test-width: 50px;
+$test-height: 20px;
+$border-width: 10px;
+$border-height: 10px;
+$border-color: #ddd;
+$lighten-color: #cc3;
+$shaw-border-color: #418ec4;
+
+.container {
+  %extend1 {
+    border: 1px solid $border-color;
+    width: $test-width;
+    height: $test-height;
+    margin: 30px 10px;
+  }
+
+  .extend2 {
+    @extend %extend1;
+    background-color: lighten($lighten-color, 10%); // #d6d65c
+  }
+
+  @mixin right($top, $value: 10px) {
+    background-color: darken($lighten-color, 10%); // #a3a329
+    float: right;
+    margin: $top $value;
+    width: $value;
+    height: $value;
+  }
+
+  .mixin1 {
+    @include right(10px);
+  }
+
+  .mixin2 {
+    @include right(10px, 20px);
+  }
+
+  @each $item in 1, 2, 3 {
+    .each-in-#{$item} {
+      margin-top: 10px * $item;
+      width: $border-width * $item;
+      height: $border-height * $item;
+      border: #{$item}px solid $shaw-border-color;
+    }
+  }
+
+  @for $i from 1 to 10 {
+    .border-#{$i} {
+      border: #{$i}px solid $shaw-border-color;
+    }
+  }
+}
+
+.fex-box {
+  display: flex;
+  transition: left .5s ease-out;
+}
