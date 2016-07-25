@@ -1,0 +1,33 @@
+$site-topbar-bg-color: #333;
+$site-topbar-text-color: #b0b0b0;
+$site-topbar-text-hover-color: #fff;
+$site-topbar-height: 40px;
+
+.site-topbar {
+  background-color: $site-topbar-bg-color;
+  color: $site-topbar-text-color;
+  height: $site-topbar-height;
+
+  .container {
+    margin: 0 30px 0 20px;
+    padding: 10px;
+
+    a {
+      color: $site-topbar-text-color;
+      text-decoration: none;
+      padding: 0 10px;
+      line-height: $site-topbar-height;
+      font-size: 12px;
+      cursor: pointer;
+
+      &:hover {
+        color: $site-topbar-text-hover-color;
+        outline: 0;
+      }
+
+       + a {
+        border-left: 1px solid $site-topbar-text-color;
+       }
+    }
+  }
+}

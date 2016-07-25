@@ -1,0 +1,19 @@
+.site-topbar {
+  background-color: #333;
+  color: #b0b0b0;
+  height: 40px; }
+  .site-topbar .container {
+    margin: 0 30px 0 20px;
+    padding: 10px; }
+    .site-topbar .container a {
+      color: #b0b0b0;
+      text-decoration: none;
+      padding: 0 10px;
+      line-height: 40px;
+      font-size: 12px;
+      cursor: pointer; }
+      .site-topbar .container a:hover {
+        color: #fff;
+        outline: 0; }
+      .site-topbar .container a + a {
+        border-left: 1px solid #b0b0b0; }
