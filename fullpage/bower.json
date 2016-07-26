@@ -1,0 +1,25 @@
+{
+  "name": "fullpage",
+  "version": "0.0.1",
+  "homepage": "https://github.com/biluo62/demo",
+  "authors": [
+    "hankliu"
+  ],
+  "description": "test fullpage demo",
+  "main": "index.js",
+  "keywords": [
+    "fullpage"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "responsive-nav": "viljamis/responsive-nav.js#~1.0.39"
+  }
+}
