@@ -77,5 +77,9 @@ module.exports = {
       dest: buildAssets,
       source: 'index.css'
     }
+  },
+  symlink: {
+    src: './pre-commit',
+    dest: '../.git/hooks/pre-commit'
   }
 }
