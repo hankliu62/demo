@@ -1,0 +1,4 @@
+.DS_Store
+fullpage/node_modules/*
+fullpage/build/*
+fullpage/.sass-cache/*
