@@ -25,16 +25,16 @@ function getURLNoReturn(URL) {
 
 var requests = {
     comment: function getComment() {
-        return getURL('http://localhost:8083/app/json/comment.json').then(JSON.parse);
+        return getURL('http://localhost:8082/app/json/comment.json').then(JSON.parse);
         // return getURLNoReturn('http://localhost:8083/app/json/comment.json').then(JSON.parse);
     },
     people: function getPeople() {
-        return getURL('http://localhost:8083/app/json/people.json').then(JSON.parse);
+        return getURL('http://localhost:8082/app/json/people.json').then(JSON.parse);
     }
 };
 
 function main() {
-    return Promise.all([requests.comment(), requests.people()]);
+    // return Promise.all([requests.comment(), requests.people()]);
 
     return Promise.race([requests.comment(), requests.people()]);
 }

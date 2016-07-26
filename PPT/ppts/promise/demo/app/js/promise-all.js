@@ -18,18 +18,28 @@ function getURL(URL) {
 }
 
 function getURLNoReturn(URL) {
-    return new Promise(function (resolve, reject) {
-
+        return new Promise(function (resolve, reject) {
+        request(URL, function (error, response, body) {
+            if (!error) {
+                if (response.statusCode == 200) {
+                    reject(body);
+                } else {
+                    reject(response.statusMessage);
+                }
+            } else {
+                reject(error);
+            }
+        });
     });
 }
 
 var requests = {
     comment: function getComment() {
-        return getURL('http://localhost:8083/app/json/comment.json').then(JSON.parse);
+        return getURL('http://localhost:8082/app/json/comment.json').then(JSON.parse);
     },
     people: function getPeople() {
-        // return getURLNoReturn('http://localhost:8083/app/json/people.json');
-        return getURL('http://localhost:8083/app/json/people.json').then(JSON.parse);
+        return getURLNoReturn('http://localhost:8082/app/json/people.json');
+        // return getURL('http://localhost:8082/app/json/people.json').then(JSON.parse);
     }
 };
 

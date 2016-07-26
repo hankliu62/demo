@@ -17,7 +17,7 @@ function getURL(URL) {
     });
 }
 // 运行示例
-var URL = "http://localhost:8083/app/json/comment.json";
+var URL = "http://localhost:8082/app/json/comment.json";
 getURL(URL).then(function onFulfilled(value){
     console.log(value);
 }).catch(function onRejected(error){
