@@ -1,0 +1,45 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "rules": {
+    "valid-jsdoc": 2,
+    "linebreak-style": [2, "unix"],
+    "semi": [2, "always"],
+    "max-len": [2, 120],
+
+    // Disable comma-dangle unless need to support it
+    "comma-dangle": 0,
+    "func-names": 0,
+    "id-length": 0,
+    // "max-len": [2, 120, 2],
+    "no-param-reassign": 0,
+    "arrow-body-style": 0,
+    "no-loop-func": 0,
+    "guard-for-in": 1,
+    "react/no-did-mount-set-state": 0,
+    "react/jsx-no-bind": 0,
+
+    "no-empty-label": 0,
+    "space-before-keywords": 0,
+    "space-after-keywords": 0,
+    "space-return-throw-case": 0,
+    "consistent-return": 0
+  },
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "ecmaFeatures": {
+    "jsx": true,
+    "experimentalObjectRestSpread": true
+  },
+  "plugins": [
+    "react"
+  ],
+  "globals": {
+    "Engine": true,
+    "isHybridEnv": true,
+    "plupload": true
+  }
+}

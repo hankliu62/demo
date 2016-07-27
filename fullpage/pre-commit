@@ -2,7 +2,7 @@
 # Check code style before commit.
 
 # Need to check whether the installation package
-install_pkgs=(scss-lint)
+install_pkgs=(coffeelint scss-lint htmllint)
 
 for pkg_name in ${install_pkgs[@]}
 do
@@ -12,6 +12,8 @@ do
         echo -e "\033[1;41mERROR\033[0m: ${pkg_name} not found"
         if [ $pkg_name == 'scss-lint' ]; then
             echo "INSTALL WITH: sudo gem install scss-lint"
+        elif [ $pkg_name == 'htmllint' ]; then
+            echo "INSTALL WITH: sudo npm install -g htmllint-cli"
         else
             echo "INSTALL WITH: sudo npm install -g ${pkg_name}"
         fi
@@ -25,11 +27,15 @@ unstaged="git diff --name-only --diff-filter=ACMR --"
 js_files="*.js"
 jsx_files="*.jsx"
 scss_files="*.scss"
+coffee_files="*.coffee"
+html_files="*.html"
 
 # Kit json or yml configuration file
 root=$(git rev-parse --show-toplevel)
 eslint_conf="${root}/src/.eslintrc"
 scsslint_conf="${root}/src/scsslint.yml"
+coffeelint_conf="${root}/src/coffeelint.json"
+htmllint_conf="${root}/src/.htmllintrc"
 
 # Check code default prompt information
 function echoPrompt() {
@@ -55,6 +61,46 @@ function isAdded() {
         done
     fi
 }
+
+##### Coffee code check #####
+# CoffeeLint
+coffee_pass=true
+straged_coffee_files=$(${straged} ${coffee_files})
+unstraged_coffee_files=$(${unstraged} ${coffee_files})
+
+if [ "$straged_coffee_files" != "" ]; then
+    isAdded "$unstraged_coffee_files" "$straged_coffee_files"
+    echo -e "\n\033[1;34mcoffee code check\033[0m:\n$straged_coffee_files"
+    for file in ${straged_coffee_files}; do
+        coffeelint -f ${coffeelint_conf} ${file}
+        if [[ $? -ne 0 ]]; then
+            coffee_pass=false
+        fi
+    done
+    echoPrompt $coffee_pass "coffee"
+fi
+
+##### Html code check #####
+# HtmlLint
+html_pass=true
+straged_html_files=$(${straged} ${html_files})
+unstraged_html_files=$(${unstraged} ${html_files})
+
+if [ "$straged_html_files" != "" ]; then
+    isAdded "$unstraged_html_files" "$straged_html_files"
+    echo -e "\n\033[1;34mhtml code check\033[0m:\n$straged_html_files"
+    for file in ${straged_html_files}; do
+        htmllint ${file}
+        if [[ $? -ne 0 ]]; then
+            html_pass=false
+        fi
+    done
+    echoPrompt $html_pass "html"
+fi
+
+if [ $js_pass -a $coffee_pass -a $scss_pass -a $html_pass ]; then
+    exit 0
+fi
 
 ##### JS code check #####
 # ESLint
