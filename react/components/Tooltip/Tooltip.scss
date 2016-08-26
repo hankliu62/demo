@@ -1,0 +1,82 @@
+$tt-popup-bg-color: #efefef;
+
+.tooltip-wrapper {
+  display: inline-block;
+  margin-left: 300px;
+
+  .tt-source {
+    cursor: pointer;
+    padding: 4px 20px;
+    display: inline-block;
+    background-color: $tt-popup-bg-color;
+  }
+
+  .tt-popup {
+    position: fixed;
+    top: 100px;
+    left: 100px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: $tt-popup-bg-color;
+    z-index: 99998;
+    max-width: 300px;
+    box-shadow: 0 0 2px 0 $tt-popup-bg-color;
+
+    &::before {
+      position: absolute;
+      z-index: 99999;
+      display: block;
+      width: 0;
+      border-style: solid;
+      content: "";
+    }
+
+    &.tt-popup-right {
+      transform: translate(10px, -50%);
+
+      &::before {
+        border-color: transparent $tt-popup-bg-color transparent transparent;
+        border-width: 10px 10px 10px 0;
+        top: 50%;
+        left: 0;
+        transform: translate(-10px, -50%);
+      }
+    }
+
+    &.tt-popup-left {
+      transform: translate(-10px, -50%);
+
+      &::before {
+        border-color: transparent transparent transparent $tt-popup-bg-color;
+        border-width: 10px 0 10px 10px;
+        top: 50%;
+        left: 100%;
+        transform: translate(0, -50%);
+      }
+    }
+
+    &.tt-popup-top {
+      transform: translate(-50%, -10px);
+
+      &::before {
+        border-color: $tt-popup-bg-color transparent transparent;
+        border-width: 10px 10px 0;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    &.tt-popup-bottom {
+      transform: translate(-50%, 10px);
+
+      &::before {
+        border-color: transparent transparent $tt-popup-bg-color;
+        border-width: 0 10px 10px;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -100%);
+      }
+    }
+  }
+}
