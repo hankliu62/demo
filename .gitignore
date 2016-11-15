@@ -1,2 +1,4 @@
 .DS_Store
 todo-mvc/react/node_modules/*
+PPT/node_modules/*
+**/node_modules/*

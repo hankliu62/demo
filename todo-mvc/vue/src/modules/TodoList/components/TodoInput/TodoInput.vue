@@ -2,7 +2,7 @@
   <input
     type="text"
     name="todoItem"
-    class="{{ classNames({ edit: !vIsCreate, 'new-todo': vIsCreate }) }}"
+    :class="{ edit: !vIsCreate, 'new-todo': vIsCreate }"
     placeholder="{{ this.placeholder || '' }}"
     v-model="item"
     @keyup.enter="updateItem"
@@ -10,8 +10,6 @@
 </template>
 
 <script>
-import classNames from 'classnames'
-
 export default {
   props: {
     placeholder: String,
@@ -32,9 +30,23 @@ export default {
   methods: {
     updateItem: function () {
       this.onUpdate(this.item)
-    },
-    classNames
+      if (this.isCreate) {
+        this.item = ''
+      }
+    }
+  },
+  directives: {
+    focus: {
+      bind: function (el, binding, vnode) {
+        console.log(el, binding, vnode);
+      },
+      inserted: function (el) {
+        console.log(el)
+        if (this.isCreate) {
+          el.focus()
+        }
+      }
+    }
   }
 }
-
 </script>
