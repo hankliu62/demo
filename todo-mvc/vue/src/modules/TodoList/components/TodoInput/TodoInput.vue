@@ -6,6 +6,8 @@
     placeholder="{{ this.placeholder || '' }}"
     v-model="item"
     @keyup.enter="updateItem"
+    @blur="onBlurInput"
+    autoFocus="true"
   >
 </template>
 
@@ -33,17 +35,18 @@ export default {
       if (this.isCreate) {
         this.item = ''
       }
+    },
+    onBlurInput: function () {
+      if (!this.isCreate) {
+        this.updateItem()
+      }
     }
   },
   directives: {
     focus: {
-      bind: function (el, binding, vnode) {
-        console.log(el, binding, vnode);
-      },
-      inserted: function (el) {
-        console.log(el)
-        if (this.isCreate) {
-          el.focus()
+      update: function () {
+        if (this.el) {
+          this.el.focus()
         }
       }
     }

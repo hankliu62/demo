@@ -4,25 +4,25 @@ DirectivesPlugin.install = function (Vue) {
   Vue.prototype.$myName = 'zhagngsan'
 
   Vue.directive('focus', {
-    bind (el, binding) {
-      console.log(el, binding)
+    bind () {
+      // console.log(this.el)
     },
-    inserted (el, binding) {
-      console.log(el)
-      el.focus()
+    update (value, oldValue) {
+      // console.log(this.el)
+      this.el.focus()
     }
   })
 
   Vue.directive('demo', {
-    bind: function (el, binding, vnode) {
+    bind: function (value) {
       var s = JSON.stringify
-      el.innerHTML =
-        'name: ' + s(binding.name) + '<br>' +
-        'value: ' + s(binding.value) + '<br>' +
-        'expression: ' + s(binding.expression) + '<br>' +
-        'argument: ' + s(binding.arg) + '<br>' +
-        'modifiers: ' + s(binding.modifiers) + '<br>' +
-        'vnode keys: ' + Object.keys(vnode).join(', ')
+      this.el.innerHTML =
+        'name: ' + s(this.name) + '<br>' +
+        'value: ' + s(this.value) + '<br>' +
+        'expression: ' + s(this.expression) + '<br>' +
+        'argument: ' + s(this.arg) + '<br>' +
+        'modifiers: ' + s(this.modifiers) + '<br>' +
+        'vnode keys: ' + Object.keys(this.vnode).join(', ')
     }
   })
 }
