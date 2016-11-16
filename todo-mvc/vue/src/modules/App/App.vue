@@ -1,5 +1,5 @@
 <template>
-  <div class="todoapp container">
+  <div class="container">
     <router-view></router-view>
   </div>
 </template>
