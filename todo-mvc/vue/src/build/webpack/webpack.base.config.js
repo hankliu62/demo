@@ -40,7 +40,8 @@ module.exports = {
       { test: /\.vue$/, loader: 'vue', exclude: /node_modules/ },
       { test: /\.js/, loader: 'babel!eslint', exclude: /node_modules/ },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css?module!postcss'), exclude: /node_modules/ },
-      { test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css?module!postcss!less'), exclude: /node_modules/ }
+      { test: /\.less$/, loader: ExtractTextPlugin.extract('style', 'css?module!postcss!less'), exclude: /node_modules/ },
+      { test: /\.(png|jpe?g|gif|svg)$/, loader: 'url', exclude: /node_modules/ }
     ]
   },
   vue: {
