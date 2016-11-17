@@ -59,6 +59,7 @@
     "vue-resource": "1.0.3",
     "vue-router": "0.7.13",
     "vue-style-loader": "1.0.0",
+    "vuex": "^2.0.0",
     "webpack": "1.13.2",
     "webpack-dev-server": "1.16.2",
     "webpack-hot-middleware": "2.13.2"

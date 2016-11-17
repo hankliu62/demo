@@ -41,6 +41,7 @@ import TodoItem from './components/TodoItem/TodoItem'
 import LocalStorageUtil from '../../utils/LocalStorageUtil'
 import { generateObjectId } from '../../utils/StringUtil'
 import { TODO_LIST_KEY, FILTER_STATUSES } from '../../constants/Constants'
+import { mapActions } from 'vuex'
 
 const deleteItems = function (condition) {
   let todos = LocalStorageUtil.getItem(TODO_LIST_KEY)
@@ -142,13 +143,15 @@ export default {
       }
       const todos = updateItems(mapFunc)
       this.setTodos(todos);
-    }
+    },
+    ...mapActions(['setState'])
   },
   components: {
     CHeader, TodoItem, CFooter
   },
   created () {
     const todos = LocalStorageUtil.getItem(TODO_LIST_KEY)
+    this.setState({ todos })
     this.$set('todos', todos)
   },
   computed: {

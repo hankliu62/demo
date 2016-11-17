@@ -18,7 +18,7 @@
       </li>
     </ul>
     <!-- clear completed todo button -->
-    <button class="clear-completed" @click="onClickClear">Clear Completed</button>
+    <button :class="{'clear-completed': true, hidden: completedCount === 0 }" @click="onClickClear">Clear Completed</button>
   </foote>
 </template>
 
