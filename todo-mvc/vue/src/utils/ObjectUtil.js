@@ -3,7 +3,7 @@ function find (list, f) {
 }
 
 function isArray (arr) {
-  return Object.prototype.toString.call(arr).slice(8, -1) === 'string'
+  return Object.prototype.toString.call(arr).slice(8, -1) === 'Array'
 }
 export function cloneDeep (obj, cache = []) {
   if (obj === null || typeof obj !== 'object') {

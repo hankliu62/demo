@@ -10,6 +10,7 @@
           name="completedItem"
           class="toggle"
           v-model="todo.completed"
+          @click="checkItem(!todo.completed)"
           :style="{ cursor: 'pointer' }"
         />
         <label @dblclick="beforeEditItem">{{ todo.text }}</label>
@@ -49,22 +50,22 @@ export default {
   components: { TodoInput },
   methods: {
     updateItem: function (text) {
-      this.todo.text = text
-      this.$emit('update', this.todo)
+      const todo = { ...this.todo, text }
+      this.$emit('update', todo)
       this.isEdit = false
     },
     removeItem: function () {
       this.$emit('remove', this.todo.id)
+    },
+    checkItem: function (completed) {
+      const todo = { ...this.todo, completed }
+      this.$emit('update', todo)
     },
     beforeEditItem: function (event) {
       this.isEdit = !this.isEdit
     }
   },
   watch: {
-    'todo.completed': function (newValue, oldValue) {
-      this.todo.completed = newValue
-      this.$emit('update', this.todo)
-    },
     'isEdit': function (newValue) {
       if (newValue) {
         const clickHanlder = function (event) {
