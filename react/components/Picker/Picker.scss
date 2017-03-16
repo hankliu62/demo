@@ -1,0 +1,90 @@
+$border-color: #ccc;
+$selected-item-color: #00aa90;
+$picker-mask-start-color: rgba(255, 255, 255, .95);
+$picker-mask-end-color: rgba(255, 255, 255, .6);
+
+$picker-height: 170px;
+$picker-indicator: 34px;
+$picker-content-item-height: 34px;
+
+.sb-picker {
+  display: block;
+  position: relative;
+  height: $picker-height;
+  overflow: hidden;
+  width: 100%;
+
+  .sb-picker-content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    .sb-picker-item {
+      touch-action: manipulation;
+      text-align: center;
+      font-size: 16px;
+      height: $picker-content-item-height;
+      line-height: $picker-content-item-height;
+      color: $selected-item-color;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      direction: rtl;
+    }
+  }
+
+  .sb-picker-mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
+    z-index: 3;
+    background-image: -webkit-linear-gradient(top, $picker-mask-start-color, $picker-mask-end-color),
+    -webkit-linear-gradient(bottom, $picker-mask-start-color, $picker-mask-end-color);
+    background-image: linear-gradient(to bottom, $picker-mask-start-color, $picker-mask-end-color),
+    linear-gradient(to top, $picker-mask-start-color, $picker-mask-end-color);
+    background-position: top, bottom;
+    background-size: 100% ($picker-height - $picker-indicator) / 2;
+    background-repeat: no-repeat;
+  }
+
+  .sb-picker-indicator {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -$picker-indicator / 2;
+    height: $picker-indicator;
+    width: 100%;
+    pointer-events: none;
+    z-index: 3;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      right: auto;
+      bottom: auto;
+      display: block;
+      width: 100%;
+      height: 1px;
+      content: '';
+      background-color: $border-color;
+      transform-origin: 50% 0;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      top: auto;
+      right: auto;
+      display: block;
+      width: 100%;
+      height: 1px;
+      content: '';
+      background-color: $border-color;
+      transform-origin: 50% 100%;
+    }
+  }
+}
