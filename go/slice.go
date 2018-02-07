@@ -55,4 +55,8 @@ func main() {
 	}
 
 	fmt.Println("2d: ", twoD)
+
+	// 结束大于数组的长度
+	arr := []int{1, 2, 3, 4, 5}
+	fmt.Println("sub slice: ", arr[0:10])
 }
