@@ -1,0 +1,17 @@
+{
+  "name": "init-config",
+  "version": "1.0.0",
+  "description": "gen init config files, such as eslintrc, stylelintrc eg.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "hank.liu",
+  "license": "ISC",
+  "dependencies": {
+    "jsonfile": "^5.0.0"
+  }
+}

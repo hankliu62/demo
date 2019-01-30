@@ -1,0 +1,19 @@
+{
+  "name": "hello-world",
+  "version": "1.0.0",
+  "description": "electron hello world demo",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ./ HelloWord --all --out D:/Workspace/personal/demo/electron/HelloWord --app-version 0.0.1 --overwrite --icon=./app/img/app-icon.ico"
+  },
+  "keywords": [
+    "electron"
+  ],
+  "author": "hank.liu",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^3.0.10",
+    "electron-packager": "^12.2.0"
+  }
+}

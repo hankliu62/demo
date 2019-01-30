@@ -1,0 +1,72 @@
+{
+  "name": "calculator",
+  "version": "1.0.0",
+  "description": "react electron calculator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager ./ Calculator --all --out ../Calculator --app-version 0.0.1 --overwrite --icon=./static/favicon.ico",
+    "lint:js": "eslint --ext .js src --fix",
+    "lint:css": "stylelint \"**/*.{less,css}\" --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/hankliu62/demo.git"
+  },
+  "keywords": [
+    "react",
+    "electron"
+  ],
+  "author": "hank.liu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hankliu62/demo/issues"
+  },
+  "homepage": "https://github.com/hankliu62/demo#readme",
+  "devDependencies": {
+    "electron": "3.0.10",
+    "electron-packager": "12.2.0",
+    "autoprefixer": "9.3.1",
+    "babel-core": "6.26.0",
+    "babel-eslint": "10.0.1",
+    "babel-plugin-import": "1.11.0",
+    "babel-plugin-transform-decorators-legacy": "1.3.4",
+    "babel-plugin-transform-runtime": "6.23.0",
+    "babel-preset-env": "1.6.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-0": "6.24.1",
+    "eslint": "5.8.0",
+    "eslint-config-airbnb": "17.1.0",
+    "eslint-plugin-babel": "5.2.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsx-a11y": "6.1.2",
+    "eslint-plugin-react": "7.11.1",
+    "husky": "1.1.3",
+    "lint-staged": "8.0.4",
+    "postcss-import": "12.0.1",
+    "stylelint": "9.8.0",
+    "stylelint-config-standard": "18.2.0",
+    "stylelint-order": "1.0.0"
+  },
+  "engines": {
+    "node": "8.6.0"
+  },
+  "dependencies": {
+    "antd": "3.4.1"
+  },
+  "browserslist": [
+    "> 0.04%",
+    "last 5 versions",
+    "not ie < 8"
+  ],
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "**/*.less": [
+      "stylelint --syntax less --fix",
+      "git add"
+    ]
+  }
+}
