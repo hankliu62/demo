@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"git.augmentum.com.cn/mairpc/share/util"
+	"git.hankliu.com.cn/hankrpc/share/util"
 )
 
 func main() {
